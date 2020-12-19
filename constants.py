@@ -1,0 +1,10 @@
+import os
+request_period_in_minutes = int(os.getenv("request_period_in_minutes"))
+alarm_threshold = int(os.getenv("alarm_threshold"))
+email_threshold = int(os.getenv("email_threshold"))
+csv_log_file_address = os.getenv("csv_log_file_address")
+admin_email = os.getenv("admin_email")
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
