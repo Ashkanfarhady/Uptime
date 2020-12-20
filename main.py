@@ -19,14 +19,21 @@ def monitor_website(website):
     period = constants.request_period_in_minutes
     down_counter = 0
     while True:
-        response = requests.get(website)
-        if response.status_code != 200:
+        try:
+            response = requests.get(website)
+        except requests.exceptions.Timeout:
+            response = None
             down_counter += 1
             alarm(down_counter, website)
-        else:
-            down_counter = 0
 
-        time.sleep(period*60)
+        if response:
+            if response.status_code/100 != 5:
+                down_counter += 1
+                alarm(down_counter, website)
+            else:
+                down_counter = 0
+
+        time.sleep(period)
 
 
 if __name__ == "__main__":
