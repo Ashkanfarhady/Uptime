@@ -26,7 +26,7 @@ def monitor_website(website):
         else:
             down_counter = 0
 
-        time.sleep(period)
+        time.sleep(period*60)
 
 
 if __name__ == "__main__":
